@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gold Rush</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Status Bar ────────────────────────────────────────────────── -->
+  <div id="status-bar">
+    <span id="stat-week">Week 1</span>
+    <span id="stat-cash">$0</span>
+    <span id="stat-gold">0 oz</span>
+    <span id="stat-food">0 lbs</span>
+    <span id="stat-medicine">0 medicine</span>
+  </div>
+
+  <!-- ── Main Game Area ────────────────────────────────────────────── -->
+  <div id="game">
+    <div id="event-card">
+      <h2 id="event-title"></h2>
+      <p id="event-description"></p>
+      <div id="event-choices"></div>
+    </div>
+  </div>
+
+  <!-- ── Party Panel ───────────────────────────────────────────────── -->
+  <div id="party-panel">
+    <h3>Party</h3>
+    <div id="party-list"></div>
+  </div>
+
+  <!-- ── Journal ───────────────────────────────────────────────────── -->
+  <div id="journal-panel">
+    <h3>Journal</h3>
+    <div id="journal-entries"></div>
+  </div>
+
+  <!-- ── Scripts — ORDER MATTERS ───────────────────────────────────── -->
+  <!-- 1. utils first — logJournal must exist before anything calls it -->
+  <script src="utils.js"></script>
+  <!-- 2. names — generateName used by party -->
+  <script src="names.js"></script>
+  <!-- 3. state — GAME_PHASES and createInitialState -->
+  <script src="state.js"></script>
+  <!-- 4. locations — REGIONS, CLAIM_TYPES, getCurrentRegion -->
+  <script src="locations.js"></script>
+  <!-- 5. party — createMember, helpers, recruitment (uses getCurrentRegion) -->
+  <script src="party.js"></script>
+  <!-- 6. events — EVENTS array (uses all helpers) -->
+  <script src="events.js"></script>
+  <!-- 7. engine — game loop, resolveChoice (uses everything) -->
+  <script src="engine.js"></script>
+  <!-- 8. ui — render functions (uses engine + state) -->
+  <script src="ui.js"></script>
+  <!-- 9. main — entry point, runs last -->
+  <script src="main.js"></script>
+
+</body>
+</html>
